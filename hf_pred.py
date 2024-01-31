@@ -206,7 +206,7 @@ def exec_file(filename):
     outfile = infile[:-3] + 'out'
 
     # Form the command to execute
-    #command = f'c:\\itshfbc\\bin_win\\icepacw.exe c:\\itshfbc BATCH {infile} {outfile}'
+    command = f'c:\\itshfbc\\bin_win\\icepacw.exe c:\\itshfbc BATCH {infile} {outfile}'
 
     # Execute the command using subprocess
     #subprocess.run(command, shell=True)
