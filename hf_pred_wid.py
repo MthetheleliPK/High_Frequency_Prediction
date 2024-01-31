@@ -1,10 +1,12 @@
+import datetime as dt
 from fileinput import filename
+import shutil
 import tkinter as tk
 from tkinter import ttk, filedialog
 from PIL import Image, ImageTk
 import os
 import numpy as np
-import hf_pred
+from hf_pred import update_template, write_template, exec_file
 
 class HFProcessorApp:
     def __init__(self, master):
@@ -85,7 +87,6 @@ class HFProcessorApp:
         self.text_widget = tk.Text(slb, wrap='word', width=50, height=6)
         self.text_widget.grid(row=1, column=0)
 
-        # ... (rest of the code remains the same)
 
     def hf_pred_wid_f1(self, index):
         self.sel_freq[index] = 1 - self.sel_freq[index]
@@ -103,26 +104,45 @@ class HFProcessorApp:
 
         #return self.d_day
 
-    def hf_pred_wid_values(self, event):
-        pass
+    def hf_pred_wid_values(event, pstate):
+        # Toggle the line connection
+        pstate_data = event.top.get_uvalue()  # Get the data structure stored with the top widget
+        temp_str = event.id.get_value()  # Get the value in the box
+
+        if event.id == pstate_data.ssn_i:
+            pstate_data.ssn = temp_str
+        elif event.id == pstate_data.qfe_i:
+            pstate_data.qfe = temp_str
+        elif event.id == pstate_data.ssn_w_i:
+            pstate_data.ssn_w = temp_str
+        elif event.id == pstate_data.qfe_w_i:
+            pstate_data.qfe_w = temp_str
+        elif event.id == pstate_data.code_i:
+            pstate_data.code = temp_str
 
     def hf_pred_wid_open(self):
         file_path = filedialog.askopenfilename(filetypes=[('Template files', '*.inp')])
         if file_path:
+            with open(file_path, 'r') as file:
+                contents = file.readlines()
             self.file.set(file_path)
+            print(file_path)
             code = os.path.basename(file_path).split('.')[0][-3:]
-            self.code.set(code)
+            print(code)
+            self.code = code
             self.text_widget.insert(tk.END, f'Opened {file_path}\n')
+            self.contents = contents
 
     def hf_pred_wid_make_file(self):
-        contents = ''  # Implement reading template contents here
-        self.update_template(contents, self.d_year, self.d_month, self.d_day, self.ssn.get(), self.ssn_w.get(),
-                             self.qfe.get(), self.qfe_w.get())
-        tt = 123456789  # Replace with actual systime function (replace with the current time)
-        month, day, year, n_hour = 1,12, 2024, 0  # Replace with actual caldat function
-        filename = self.file_from_date(self.code.get(), year, month, day)
-        self.write_template(filename, contents)
-        self.exec_file.set(filename)
+        #contents = ''  # Implement reading template contents here
+        contents = update_template(self.contents, self.d_year, self.d_month, self.d_day, self.ssn, self.ssn_w,
+                             self.qfe, self.qfe_w)
+        #tt = 123456789  # Replace with actual systime function (replace with the current time)
+        #month, day, year, n_hour = 1,12, 2024, 0  # Replace with actual caldat function
+        filename = self.file_from_date()# self.code, self.d_year, self.d_month, self.d_day))
+        print(filename)
+        write_template(filename, contents)
+        #self.exec_file.set(filename)
         self.text_widget.insert(tk.END, f'File written {filename}\n')
 
     #def hf_pred_wid_execute(self):
@@ -138,45 +158,95 @@ class HFProcessorApp:
     #    hf_pred.print_w(event.widget.master, f"Output in {pstate['exec_file']}_out")
 
     def hf_pred_wid_execute(self):
-        output_file = os.path.basename(self.exec_file.get())
-        output_filepath = self.exec_file.get()  # assuming you want to get the value of the StringVar
+        #output_file = os.path.basename(self.exec_file.get())
+        filename = self.file_from_date()
+        output_filepath = exec_file(filename)  # assuming you want to get the value of the StringVar
         self.text_widget.insert(tk.END, f'File {self.exec_file.get()} moved to C:\\itshfbc\\run\\ \n')
         self.text_widget.insert(tk.END, f'Output in {output_filepath}\n')
-        
+
+    # def hf_pred_wid_execute(self, event, pstate):
+    # # Assuming pstate is an object with attributes exec_file and out_file
+    #     exec_file = getattr(filename)
+    #     out_file = getattr(pstate, 'out_file', None)
+
+    #     if exec_file and out_file:
+    #         # Assuming event.top is equivalent to a text widget
+    #         event.top.insert("end", f'File {exec_file} moved to c:\\itshfbc\\run\\\n')
+    #         event.top.insert("end", f'Output in {out_file}\n')
+
+    # def move_file(source_path, destination_path):
+    #     """
+    #     Move a file from the source_path to the destination_path.
+
+    #     Parameters:
+    #     - source_path (str): Path to the source file.
+    #     - destination_path (str): Path to the destination folder.
+
+    #     Returns:
+    #     - str: Path to the moved file.
+    #     """
+    #     #source_path = "C:\\C:\Users\pkhumalo\Desktop\Phumlani_Khumalo\New Python Code"
+    #     try:
+    #         # Use shutil.move to move the file
+    #         moved_file_path = shutil.move(source_path, destination_path)
+    #         print(f"File moved successfully to: {moved_file_path}")
+    #         return moved_file_path
+    #     except Exception as e:
+    #         print(f"Error: {e}")
+    #         return None
+    
     def hf_pred_wid_done(self):
         root.destroy()
 
-    def exec_file(self, input_file, output_file):
-        # Perform the execution logic here
-        # This is just a placeholder; replace it with your actual execution code
-        with open(input_file, 'r') as infile:
-            content = infile.read()
-            # Perform some processing on the content if needed
+    # def exec_file(self, input_file, output_file):
+    #     # Perform the execution logic here
+    #     # This is just a placeholder; replace it with your actual execution code
+    #     with open(input_file, 'r') as infile:
+    #         content = infile.read()
+    #         # Perform some processing on the content if needed
 
-        # Specify the output directory and form the output file path
-        output_directory = "C:\\itshfbc\\run"
-        output_filepath = os.path.join(output_directory, output_file)
+    #     # Specify the output directory and form the output file path
+    #     output_directory = "C:\\itshfbc\\run"
+    #     output_filepath = os.path.join(output_directory, output_file)
 
-        # Write the processed content to the output file
-        with open(output_filepath, 'w') as outfile:
-            outfile.write(content)
+    #     # Write the processed content to the output file
+    #     with open(output_filepath, 'w') as outfile:
+    #         outfile.write(content)
 
-        return output_filepath
+    #     return output_filepath
+    
+    def file_from_date(self):
+        # Format the date as a string
+        date_str = dt.datetime(int(self.d_year), int(self.d_month), int(self.d_day)).strftime('%Y%m%d')
 
-    def update_template(self, contents, d_year, d_month, d_day, ssn, ssn_w, qfe, qfe_w):
-        contents = f"Year: {d_year}\nMonth: {d_month}\nDay: {d_day}\nSSN: {ssn}\nSSN Weekly: {ssn_w}\nQFE: {qfe}\nQFE Weekly: {qfe_w}"
-        print(contents)
-        filename = "template_spa.inp"
-        hf_pred.write_template(filename, contents)
-        return contents
+        # Create the filename using the specified format
+        filename = f'ar{date_str}{self.code}.inp'
 
-    def file_from_date(self, code, year, month, day):
-        filename = f"{code}_{year}{month:02d}{day:02d}.inp"
         return filename
 
-    def write_template(self, filename, contents):
-        with open(filename, 'w') as file:
-            file.write(contents)
+    def update_template(self, contents, d_year, d_month, d_day, ssn, ssn_w, qfe, qfe_w):
+        parms = f"Year: {d_year}\nMonth: {d_month}\nDay: {d_day}\nSSN: {ssn}\nSSN Weekly: {ssn_w}\nQFE: {qfe}\nQFE Weekly: {qfe_w}"
+        #print(parms)
+        filename = self.file_from_date()
+        print(filename)
+        
+        #update_template(contents, d_day, d_year, d_month, ssn, ssn_w, qfe, qfe_w)
+        #write_template(self,filename)
+
+        return contents
+
+    #def file_from_date(self):
+    #    # Format the date as a string
+    #    date_str = datetime(self.d_year, self.d_month, self.d_day).strftime('%Y%m%d')
+
+        # Create the filename using the specified format
+    #    filename = f'ar{date_str}{self.code}.inp'
+
+    #    return filename
+
+    #def write_template(self, filename):
+    #    with open(filename, 'w') as file:
+    #        file.writelines(self.contents)
 
 # Create the main window
 root = tk.Tk()

@@ -1,3 +1,6 @@
+from datetime import date, datetime
+import shutil
+import subprocess 
 import tkinter as tk
 from tkinter import filedialog
 import time
@@ -7,7 +10,7 @@ def read_template(file_path):
     with open(file_path, 'r') as file:
         return file.read()
     
-def julday(month, day, year, hour):
+#def julday(month, day, year, hour):
     """
     Calculate the Julian day for a given date and time.
 
@@ -42,7 +45,7 @@ def julday(month, day, year, hour):
 
     return julian_day
     
-def caldat(jd):
+#def caldat(jd):
     """
     Convert a Julian date to calendar date components.
 
@@ -87,7 +90,6 @@ def caldat(jd):
     }
 
 def update_template(contents, year, month, day, ssn, ssn_w, qfe, qfe_w):
-    day_w = day + 3
 
     # Find line indices for 'LABEL', 'MONTH', 'SUNSPOT'
     line_sel_label = [i for i, line in enumerate(contents) if 'LABEL' in line]
@@ -96,90 +98,122 @@ def update_template(contents, year, month, day, ssn, ssn_w, qfe, qfe_w):
 
     months = [' ', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    # Calculate Julian date and update label_str_w
-    jd = julday(month, day, year, 0)
-    result = caldat(jd + 6.0)
-    month2, day2, year2 = result["month"], result["day"], result["year"] % 100
-    label_str_w = f"{day:02d}/{month:02d}/{year % 100:02d}-{day2:02d}/{month2:02d}/{year2:02d}"
+    today = datetime.today()
+    day = today.day
+    month = today.month
+    year = today.year
 
-    #print(jd)
-    #print(result)
+    label_str_w = f'{today:%m/%d/%y}'
 
     for i in range(len(line_sel_label)):
-        # Update LABEL lines
-        str_o = contents[line_sel_label[i]]
-        b = str_o.find('-')
+        # Update LABEL lines.......................
+        str_label_old = contents[line_sel_label[i]]
+        print(str_label_old)
+        b = str_label_old.find('-')
         meth = 1 if b > 0 else 0
-        pos = str_o.find(':')
-        str_n = str_o + '   '
+        pos = str_label_old.find(':')
+        str_label_new = str_label_old + '   '
 
         if meth:
-            str_n = str_n[:pos + 2] + label_str_w
+            str_label_new = str_label_new[:pos + 2] + label_str_w
         else:
-            str_n = str_n[:pos + 2] + f"{day:02d}/{months[month]:3}/{year % 100:02d}"
+            str_label_new = str_label_new[:pos + 2] + f"{day:02d}/{months[month]:3}/{year % 100:02d}"
 
-        contents[line_sel_label[i]] = str_n
+        contents[line_sel_label[i]] = str_label_new
+        print(str_label_new)
 
-        # Update MONTH lines
-        str_o = contents[line_sel_month[i]]
-        day_d = day_w if meth else day
+        # Update MONTH lines.....................
+        str_month_old = contents[line_sel_month[i]]
+        print(str_month_old)
+        day_d = day
         month_str = f"{year:04d}{month:02d}.{day_d:02d}"
-        pos = str_o.find('.')
-        str_n = str_n[:pos - 6] + month_str
+        pos = str_month_old.find('.')
+        str_month_new = str_month_old[:pos - 6] + month_str
+        print(str_month_new)
 
-        contents[line_sel_month[i]] = str_n
+        contents[line_sel_month[i]] = str_month_new
+        
 
-        # Update SUNSPOT lines
-        str_o = contents[line_sel_sunspot[i]]
-        print(str_o)
-        ssn_str = f"{ssn_w:.0f}{qfe_w:.1f}" if meth else f"{ssn:.0f}{qfe:.1f}"
-        print(ssn_str)
-        pos = str_o.find('.')
-        str_n = str_n[:pos - 3] + ssn_str
+        # Update SUNSPOT lines.........................
+        str_sunspot_old = contents[line_sel_sunspot[i]]
+        print(str_sunspot_old)
+        ssn_str = f"{float(ssn_w.get()):.0f}{float(qfe_w.get()):.1f}" if meth else f"{float(ssn.get()):.0f}{float(qfe.get()):.1f}"
 
-        contents[line_sel_sunspot[i]] = str_n
-        print(str_n)
-        print(str_o)
+        #print(ssn_str)
+        pos = str_sunspot_old.find('.')
+        str_sunspot_new = str_sunspot_old[:pos - 3] + ssn_str
+        print(str_sunspot_new)
+
+        contents[line_sel_sunspot[i]] = str_sunspot_new
+        #print(str_n)
+        #print(str_o)
 
         return contents
 
-
-def file_from_date(code, year, month, day):
+#def file_from_date(code, year, month, day):
     # Format the date components as strings with leading zeros
-    year_str = str(year).zfill(4)
-    month_str = str(month).zfill(2)
-    day_str = str(day).zfill(2)
+    #year_str = str(year).zfill(4)
+    #month_str = str(month).zfill(2)
+    #day_str = str(day).zfill(2)
 
     # Combine the components to form the filename
-    filename = f"{code}_{year_str}{month_str}{day_str}.txt"
+    #filename = f"{code}_{year_str}{month_str}{day_str}.txt"
 
     # Optionally, specify a directory path if needed
-    directory = "C:\\itshfbc\\run"
-    filepath = os.path.join(directory, filename)
+    #directory = "C:\\itshfbc\\run"
+    #filepath = os.path.join(directory, filename)
 
-    return filepath
+    #return filepath
+
+def file_from_date(code, year, month, day):
+    # Format the date as a string
+    date_str = datetime(year, month, day).strftime('%Y%m%d')
+
+    # Create the filename using the specified format
+    filename = f'ar{date_str}{code}.inp'
+
+    return filename
 
 
 def write_template(filename, contents):
     with open(filename, 'w') as file:
-        file.write(contents)
+        file.writelines(contents)
 
-def exec_file(input_file, output_file):
-    # Perform the execution logic here
-    # This is just a placeholder; replace it with your actual execution code
-    with open(input_file, 'r') as infile:
-        content = infile.read()
-        # Perform some processing on the content if needed
+# def exec_file(input_file, output_file):
+#     # Perform the execution logic here
+#     # This is just a placeholder; replace it with your actual execution code
+#     with open(input_file, 'r') as infile:
+#         content = infile.read()
+#         # Perform some processing on the content if needed
 
-    # Specify the output directory and form the output file path
-    output_directory = "C:\\itshfbc\\run"
-    output_filepath = os.path.join(output_directory, output_file)
+#     # Specify the output directory and form the output file path
+#     output_directory = "C:\\itshfbc\\run"
+#     output_filepath = os.path.join(output_directory, output_file)
 
-    # Write the processed content to the output file
-    with open(output_filepath, 'w') as outfile:
-        outfile.write(content)
+#     # Write the processed content to the output file
+#     with open(output_filepath, 'w') as outfile:
+#         outfile.write(content)
 
-    return output_filepath
+#     return output_filepath
+        
+def exec_file(filename):
+    run_dir = 'c:\\itshfbc\\run\\'
+
+    # Move the file to the run directory, overwriting if it already exists
+    shutil.move(filename, os.path.join(run_dir, os.path.basename(filename)))
+
+    infile = os.path.join(run_dir, os.path.basename(filename))
+    outfile = infile[:-3] + 'out'
+
+    # Form the command to execute
+    #command = f'c:\\itshfbc\\bin_win\\icepacw.exe c:\\itshfbc BATCH {infile} {outfile}'
+
+    # Execute the command using subprocess
+    #subprocess.run(command, shell=True)
+
+    outfile = os.path.join(run_dir, os.path.basename(outfile))
+
+    return outfile
 
 
 def hf_pred_wid_open(pstate):

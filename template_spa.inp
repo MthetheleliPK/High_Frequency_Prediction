@@ -1,7 +1,355 @@
-Year: 2024
-Month: 1
-Day: 29
-SSN: 12.3
-SSN Weekly: 43.5
-QFE: 32.4
-QFE Weekly: 127.3
+COEFFS    URSI                                          
+LABEL     CAPETOWN_PRETORIA: 03Mar2012
+CIRCUIT   34.13S    18.39E    25.75S    28.17E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.03
+SUNSPOT     47. 4.2
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    4.0000
+FREQUENCY  2.50 3.00 4.50 5.00 7.50 8.5011.5012.5013.5014.5017.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                         
+LABEL     CAPETOWN_DURBAN: 03Mar2012
+CIRCUIT   34.13S    18.39E    30.05S    29.70E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.03
+SUNSPOT     47. 4.2
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]225.0    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 46.5    4.0000
+FREQUENCY  2.50 3.00 4.50 5.00 7.50 8.5011.5012.5013.5014.5017.00
+TIME         2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE         
+LABEL     DURBAN_PRETORIA: 03Mar2012
+CIRCUIT   30.05S    29.70E    25.75S    28.17E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.03
+SUNSPOT     47. 4.2
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]225.0    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 46.5    4.0000
+FREQUENCY  2.50 2.90 3.10 3.30 4.40 5.10 6.70 7.30 8.90 9.8011.50
+TIME         2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE    
+LABEL     BLOEMFONTEIN_CAPE_TOWN: 03Mar2012
+CIRCUIT   29.20S    26.12E    33.92S    18.37E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.03
+SUNSPOT     47. 4.2
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]223.2    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 48.0    4.0000
+FREQUENCY  2.50 3.00 4.50 5.00 7.50 8.50 8.9710.3012.5013.5014.50       
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                            
+LABEL     BURUNDI_HK_NOORDA: 03/03-09/03/12
+CIRCUIT    3.38S    29.35E     2.45S    30.13E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]158.5    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ]337.7    4.0000
+FREQUENCY  2.70 3.10 3.90 4.40 5.10 6.30 7.60 8.50 9.06 9.4910.30
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                         
+LABEL     BURUNDI_HK_OOSC: 03/03-09/03/12
+CIRCUIT    3.38S    29.35E     3.15S    30.65E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]217.1    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 38.2    4.0000
+FREQUENCY  2.70 3.10 3.90 4.40 5.10 6.30 7.60 8.50 9.06 9.4910.30
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                         
+LABEL     BURUNDI_HK_SUIDB: 03/03-09/03/12
+CIRCUIT    3.38S    29.35E     4.22S    29.62E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]238.3    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 58.8    4.0000
+FREQUENCY  2.70 3.10 3.90 4.40 5.10 6.30 7.60 8.50 9.06 9.4910.30
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                      
+LABEL     CAPETOWN_NVIS: 03Mar2012
+CIRCUIT   34.13S    18.39E    34.14S    18.40E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    4.0000
+FREQUENCY  2.52 2.61 3.10 3.38 3.80 4.10 4.90 5.60 6.49 7.20 8.10
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                    
+LABEL     PRETORIA_NVIS: 03/03-09/03/12
+CIRCUIT   25.76S    28.18E    25.75S    28.17E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]158.5    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ]337.7    4.0000
+FREQUENCY  2.52 2.61 3.10 3.38 3.80 4.10 4.90 5.60 6.49 7.20 8.10
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                      
+LABEL     Lohatla_Area: 03/03-09/03/12
+CIRCUIT   28.05S    23.05E    28.00S    23.00E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 46.5    4.0000
+FREQUENCY  2.52 2.61 3.10 3.38 3.80 4.10 4.90 5.60 6.49 7.20 8.10
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE 
+LABEL     Pietersburg_Pretoria: 03/03-09/03/12
+CIRCUIT   23.90S    29.40E    25.75S    28.17E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ] 30.3    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ]209.8    4.0000
+FREQUENCY  2.52 2.61 3.10 3.38 3.80 4.10 4.90 5.60 6.49 7.20 8.10
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE          
+LABEL     PRETORIA_CAPETOWN_HAM: 03/03-09/03/12
+CIRCUIT   27.75S    28.17E    34.13S    18.39E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    4.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                        
+LABEL     PRETORIA_DURBAN_HAM: 03/03-09/03/12
+CIRCUIT   27.75S    28.17E    30.05S    29.70E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                           
+LABEL     DURBAN_CAPETOWN_HAM: 03/03-09/03/12
+CIRCUIT   30.05S    29.70E    34.13S    34.13E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE 
+LABEL     PortElizabeth_Pretoria_HAM: 03/03-09/03/12
+CIRCUIT   33.98S    25.61E    25.75S    28.17E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE  
+LABEL     PRETORIA_NEWYORK_HAM: 03/03-09/03/12
+CIRCUIT   27.75S    28.17E    40.73N    74.02W        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                         
+LABEL     PRETORIA_SANFRANCISCO_HAM: 03/03-09/03/12
+CIRCUIT   27.75S    28.17E    37.80N   122.40W        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                         
+LABEL     PRETORIA_FRANKFURT_HAM: 03/03-09/03/12
+CIRCUIT   27.75S    28.17E    50.12N     8.67E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE                                                                                                                                               
+LABEL     PRETORIA_SYDNEY_HAM: 03/03-09/03/12
+CIRCUIT   27.75S    28.17E    33.87S   151.17E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE
+LABEL     BFNTEIN_CAPE_TOWN_HAM: 03/03-09/03/12
+CIRCUIT   29.20S    26.12E    33.92S    18.37E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.06
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]223.2    1.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 48.0    4.0000
+FREQUENCY  3.60 7.1010.1014.1021.1028.0028.0028.0028.0028.0028.00    
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE 
+LABEL     GRAHAMSTOWN NVIS: 03Mar2012
+CIRCUIT   33.30S    26.50E    33.31S    26.51E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.03
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  2.52 2.61 3.10 3.38 3.80 4.10 4.90 5.60 6.49 7.20 8.10
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE 
+LABEL     Hermanus NVIS: 03Mar2012
+CIRCUIT   34.42S    19.22E    34.43S    19.23E        0
+SYSTEM       .1 142. 0.10  80.48.00 3.00 0.10
+MONTH      201203.03
+SUNSPOT     44. 3.4
+ANTENNA       1    1    2   30     6.000[SAMPLES\SAMPLE.00    ]193.4    3.0000
+ANTENNA       2    2    2   30     0.000[SAMPLES\SAMPLE.00    ] 14.7    3.0000
+FREQUENCY  2.52 2.61 3.10 3.38 3.80 4.10 4.90 5.60 6.49 7.20 8.10
+TIME          2   24    2    1
+METHOD       23                                                                 
+TOPLINES      1    2    3    4    5    6    7                                   
+BOTLINES      1    2    7   10   12
+EXECUTE                                                                         
+TIME          1   24    1   1
+METHOD       26
+EXECUTE   
+QUIT
+
